@@ -1,0 +1,3 @@
+npm install lucide-react @radix-ui/react-slot class-variance-authority @radix-ui/react-label @radix-ui/react-tabs clsx @radix-ui/react-progress tailwind-merge @radix-ui/react-select @radix-ui/react-separator
+2. npm install @radix-ui/themes
+3. npm install tailwindcss @tailwindcss/vite
