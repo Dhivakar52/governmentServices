@@ -12,7 +12,7 @@ import {
   Shield, 
   LogOut, 
   Download, 
-  User,
+  User ,
   Bell,
   Settings,
   HelpCircle,
@@ -45,7 +45,8 @@ import {
   type Notification,
   type DashboardPage
 } from './dashboard/dashboardConstants';
-import type { User as AppUser } from '../App';
+import type { User as AppUser  } from '../App';
+
 
 interface DashboardProps {
   user: AppUser;

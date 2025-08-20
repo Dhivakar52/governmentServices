@@ -1,431 +1,344 @@
 import { useState } from 'react';
 import { Button } from './ui/button';
-import { Card } from './ui/card';
-import { Input } from './ui/input';
 import { Label } from './ui/label';
+import {  CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
-import { ArrowLeft, Shield, Smartphone, QrCode, Mail, AlertTriangle, CheckCircle, UserCog, Lock } from 'lucide-react';
+import { 
+  Shield, 
+  Users, 
+  Building2, 
+  Mail, 
+  Lock, 
+  Phone, 
+  CreditCard,
+  Car,
+  FileText,
+  BarChart3,
+  CheckCircle
+} from 'lucide-react';
+import { Alert, AlertDescription } from './ui/alert';
+import civilityLogo from '../assets/dummy_logo.jpg';
+import xpLogo from '../assets/dummy_logo.jpg';
+
+type UserRole = 'citizen' | 'officer' | 'admin' | null;
 
 interface LoginPageProps {
-  onLogin: (emailOrMobile: string) => void;
-  onBack: () => void;
-  userType: 'citizen' | 'admin';
+  onLogin: (role: UserRole) => void;
 }
 
-export function LoginPage({ onLogin, onBack, userType }: LoginPageProps) {
-  const [emailOrMobile, setEmailOrMobile] = useState('');
-  const [password, setPassword] = useState('');
-  const [otp, setOtp] = useState('');
-  const [showOtp, setShowOtp] = useState(false);
-  const [otpTimer, setOtpTimer] = useState(0);
+export function LoginPage({ onLogin }: LoginPageProps) {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    nationalId: '',
+    phone: ''
+  });
   const [isLoading, setIsLoading] = useState(false);
 
-  const isAdmin = userType === 'admin';
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
 
-  const sendOtp = () => {
-    if (!emailOrMobile.trim()) return;
-    
+  const handleLogin = async (role: UserRole) => {
     setIsLoading(true);
-    // Simulate OTP sending
-    setTimeout(() => {
-      setShowOtp(true);
-      setOtpTimer(60);
-      setIsLoading(false);
-      
-      // Start countdown timer
-      const timer = setInterval(() => {
-        setOtpTimer(prev => {
-          if (prev <= 1) {
-            clearInterval(timer);
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-    }, 1000);
-  };
-
-  const handlePasswordLogin = () => {
-    if (emailOrMobile && password) {
-      onLogin(emailOrMobile);
-    }
-  };
-
-  const verifyOtp = () => {
-    if (otp === '123456' || otp.length === 6) {
-      onLogin(emailOrMobile);
-    }
-  };
-
-  const handleQrLogin = () => {
-    // Simulate QR code login
-    onLogin('qr-user@example.com');
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    setIsLoading(false);
+    onLogin(role);
   };
 
   return (
-    <div className="min-h-screen bg-[var(--microsoft-gray-50)]">
-      {/* Official Government Header */}
-      <div className="bg-[var(--microsoft-blue)] text-white text-center py-2 px-4">
-        <p className="text-xs font-medium">
-          🔒 {isAdmin ? 'RESTRICTED ADMINISTRATIVE ACCESS' : 'OFFICIAL GOVERNMENT PORTAL'} - AUTHORIZED PERSONNEL ONLY 🔒
-        </p>
-      </div>
-
-      <header className="microsoft-nav border-b border-[var(--microsoft-gray-200)]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center h-16">
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              onClick={onBack} 
-              className="mr-4 text-[var(--microsoft-gray-700)] hover:bg-[var(--microsoft-gray-200)]"
-            >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              RETURN TO PORTAL
-            </Button>
-            <div className="flex items-center space-x-3">
-              <div className="bg-[var(--microsoft-blue)] w-10 h-10 rounded-md flex items-center justify-center">
-                {isAdmin ? (
-                  <UserCog className="h-6 w-6 text-white" />
-                ) : (
-                  <Shield className="h-6 w-6 text-white" />
-                )}
-              </div>
-              <div>
-                <h1 className="text-lg font-semibold text-[var(--microsoft-gray-900)]">
-                  {isAdmin ? 'ADMINISTRATIVE AUTHENTICATION' : 'CITIZEN AUTHENTICATION'}
-                </h1>
-                <p className="text-xs text-[var(--microsoft-gray-700)]">Government Platform</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <div className="max-w-lg mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Security Notice */}
-        <div className={`formal-card p-4 mb-8 border-l-4 ${
-          isAdmin 
-            ? 'bg-red-50 border-l-red-400' 
-            : 'bg-blue-50 border-l-blue-400'
-        }`}>
-          <div className="flex">
-            {isAdmin ? (
-              <Lock className="h-5 w-5 text-red-400 mr-3 mt-0.5" />
-            ) : (
-              <Shield className="h-5 w-5 text-blue-400 mr-3 mt-0.5" />
-            )}
-            <div>
-              <h4 className={`font-semibold ${
-                isAdmin ? 'text-red-800' : 'text-blue-800'
-              }`}>
-                {isAdmin ? 'RESTRICTED ADMINISTRATIVE AREA' : 'SECURE ACCESS PORTAL'}
-              </h4>
-              <p className={`text-sm ${
-                isAdmin ? 'text-red-700' : 'text-blue-700'
-              }`}>
-                {isAdmin 
-                  ? 'This area is restricted to authorized government personnel only. All access is monitored and logged.'
-                  : 'This is an official government authentication system protected by national security protocols.'
-                }
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-semibold text-[var(--microsoft-gray-900)] mb-2">
-            {isAdmin ? 'ADMINISTRATOR ACCESS' : 'WELCOME BACK, CITIZEN'}
-          </h1>
-          <p className="text-[var(--microsoft-gray-700)]">
-            {isAdmin 
-              ? 'Access the Digital Identity administrative console'
-              : 'Access your official digital identity dashboard and government services'
-            }
-          </p>
-        </div>
-
-        {isAdmin ? (
-          // Admin Login Form
-          <Card className="formal-card p-8">
-            <div className="space-y-6">
-              <div className="space-y-3">
-                <Label htmlFor="adminEmail" className="text-[var(--microsoft-gray-900)]">
-                  ADMINISTRATOR EMAIL / USERNAME
-                </Label>
-                <Input
-                  id="adminEmail"
-                  type="text"
-                  value={emailOrMobile}
-                  onChange={(e) => setEmailOrMobile(e.target.value)}
-                  placeholder="Enter your administrator credentials"
-                  className="h-12"
-                />
-              </div>
-              
-              <div className="space-y-3">
-                <Label htmlFor="adminPassword" className="text-[var(--microsoft-gray-900)]">
-                  SECURE PASSWORD
-                </Label>
-                <Input
-                  id="adminPassword"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter your secure password"
-                  className="h-12"
-                />
-              </div>
-
-              <div className="bg-yellow-50 border border-yellow-200 rounded-md p-3">
-                <p className="text-xs text-yellow-700 flex items-center">
-                  <CheckCircle className="h-4 w-4 mr-2" />
-                  For demonstration: Use any email and password to access admin dashboard
+    <div className="min-h-screen bg-gradient-to-br from-d365-primary via-blue-800 to-d365-primary flex items-center justify-center p-6">
+      <div className="w-full max-w-7xl">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="flex items-center justify-center mb-6">
+            <div className="flex flex-col items-center space-y-4">
+              <img 
+                src={civilityLogo} 
+                alt="Civility" 
+                className="h-16 w-auto object-contain"
+              />
+              <div className="text-center">
+                <p className="text-subtitle text-white/80">
+                  Republic of Utopia Government Services
                 </p>
               </div>
-
-              <Button 
-                onClick={handlePasswordLogin} 
-                className="w-full h-12 bg-[var(--microsoft-blue)] hover:bg-[var(--microsoft-blue-secondary)] text-white"
-                disabled={!emailOrMobile.trim() || !password.trim()}
-              >
-                <Lock className="h-4 w-4 mr-2" />
-                ACCESS ADMIN CONSOLE
-              </Button>
             </div>
-          </Card>
-        ) : (
-          // Citizen Login Tabs
-          <Tabs defaultValue="credentials" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-2 bg-[var(--microsoft-gray-100)]">
-              <TabsTrigger 
-                value="credentials" 
-                className="flex items-center space-x-2 data-[state=active]:bg-[var(--microsoft-blue)] data-[state=active]:text-white font-semibold"
-              >
-                <Smartphone className="h-4 w-4" />
-                <span>OFFICIAL CREDENTIALS</span>
-              </TabsTrigger>
-              <TabsTrigger 
-                value="qr" 
-                className="flex items-center space-x-2 data-[state=active]:bg-[var(--microsoft-blue)] data-[state=active]:text-white font-semibold"
-              >
-                <QrCode className="h-4 w-4" />
-                <span>MOBILE APP</span>
-              </TabsTrigger>
-            </TabsList>
+          </div>
+          <p className="text-lg text-white/90 max-w-2xl mx-auto">
+            Secure Digital Government Services for the Republic of Utopia
+          </p>
+          <div className="flex items-center justify-center space-x-8 mt-6 text-white/70">
+            <div className="flex items-center">
+              <CheckCircle className="w-5 h-5 mr-2" />
+              <span>Secure</span>
+            </div>
+            <div className="flex items-center">
+              <CheckCircle className="w-5 h-5 mr-2" />
+              <span>Efficient</span>
+            </div>
+            <div className="flex items-center">
+              <CheckCircle className="w-5 h-5 mr-2" />
+              <span>Accessible</span>
+            </div>
+          </div>
+        </div>
 
-            <TabsContent value="credentials">
-              <Card className="formal-card p-8">
-                <div className="space-y-6">
-                  {!showOtp ? (
-                    <>
-                      <div className="space-y-3">
-                        <Label htmlFor="emailOrMobile" className="text-[var(--microsoft-gray-900)]">
-                          REGISTERED EMAIL OR MOBILE NUMBER
-                        </Label>
-                        <Input
-                          id="emailOrMobile"
-                          type="text"
-                          value={emailOrMobile}
-                          onChange={(e) => setEmailOrMobile(e.target.value)}
-                          placeholder="Enter your registered email or mobile number"
-                          className="h-12"
-                        />
-                        <p className="text-xs text-[var(--microsoft-gray-500)]">
-                          Use the email or mobile number registered with your Digital ID
-                        </p>
-                      </div>
-                      <Button 
-                        onClick={sendOtp} 
-                        className="w-full h-12 bg-[var(--microsoft-blue)] hover:bg-[var(--microsoft-blue-secondary)] text-white"
-                        disabled={!emailOrMobile.trim() || isLoading}
-                      >
-                        {isLoading ? (
-                          <>
-                            <div className="animate-spin w-4 h-4 mr-2 border-2 border-white border-t-transparent rounded-full" />
-                            SENDING SECURE CODE...
-                          </>
-                        ) : (
-                          <>
-                            <Mail className="h-4 w-4 mr-2" />
-                            SEND VERIFICATION CODE
-                          </>
-                        )}
-                      </Button>
-                    </>
-                  ) : (
-                    <>
-                      <div className="text-center space-y-4">
-                        <div className="bg-[var(--microsoft-blue)] w-16 h-16 rounded-full flex items-center justify-center mx-auto">
-                          <Mail className="h-8 w-8 text-white" />
-                        </div>
-                        <div>
-                          <h3 className="font-semibold text-[var(--microsoft-gray-900)]">VERIFICATION CODE SENT</h3>
-                          <p className="text-sm text-[var(--microsoft-gray-700)] mt-2">
-                            A secure 6-digit verification code has been sent to
-                          </p>
-                          <p className="font-medium text-[var(--microsoft-blue)]">{emailOrMobile}</p>
-                        </div>
-                      </div>
-
-                      <div className="space-y-4">
-                        <div className="space-y-3">
-                          <Label htmlFor="otp" className="text-[var(--microsoft-gray-900)]">
-                            ENTER VERIFICATION CODE
-                          </Label>
-                          <Input
-                            id="otp"
-                            type="text"
-                            value={otp}
-                            onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
-                            placeholder="Enter 6-digit code"
-                            className="h-12 text-center text-2xl tracking-widest"
-                            maxLength={6}
-                          />
-                          <div className="bg-yellow-50 border border-yellow-200 rounded-md p-3">
-                            <p className="text-xs text-yellow-700 flex items-center">
-                              <CheckCircle className="h-4 w-4 mr-2" />
-                              For demonstration purposes, use code: <span className="font-semibold ml-1">123456</span>
-                            </p>
-                          </div>
-                        </div>
-
-                        <Button 
-                          onClick={verifyOtp} 
-                          className="w-full h-12 bg-[var(--microsoft-blue)] hover:bg-[var(--microsoft-blue-secondary)] text-white"
-                          disabled={otp.length !== 6}
-                        >
-                          VERIFY & ACCESS PORTAL
-                        </Button>
-
-                        <div className="text-center">
-                          {otpTimer > 0 ? (
-                            <p className="text-sm text-[var(--microsoft-gray-700)]">
-                              Resend verification code in <span className="font-semibold">{otpTimer}s</span>
-                            </p>
-                          ) : (
-                            <Button 
-                              variant="link" 
-                              onClick={sendOtp} 
-                              className="text-sm text-[var(--microsoft-blue)]"
-                            >
-                              RESEND VERIFICATION CODE
-                            </Button>
-                          )}
-                        </div>
-                      </div>
-
-                      <Button 
-                        variant="outline" 
-                        onClick={() => {
-                          setShowOtp(false);
-                          setOtp('');
-                          setOtpTimer(0);
-                        }}
-                        className="w-full"
-                      >
-                        USE DIFFERENT CREDENTIALS
-                      </Button>
-                    </>
-                  )}
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Features Panel */}
+          <div className="space-y-6">
+            <div className="d365-card p-8">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-4 bg-d365-primary/10 rounded-xl">
+                  <Shield className="w-8 h-8 text-d365-primary" />
                 </div>
-              </Card>
-            </TabsContent>
+                <div>
+                  <h3 className="text-title2 font-semibold text-d365-primary">
+                    Enterprise-Grade Security
+                  </h3>
+                  <p className="text-body text-d365-secondary">
+                    Advanced encryption and multi-factor authentication
+                  </p>
+                </div>
+              </div>
+            </div>
 
-            <TabsContent value="qr">
-              <Card className="formal-card p-8">
-                <div className="text-center space-y-6">
-                  <div className="space-y-4">
-                    <div className="bg-[var(--microsoft-blue)] w-16 h-16 rounded-full flex items-center justify-center mx-auto">
-                      <QrCode className="h-8 w-8 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-[var(--microsoft-gray-900)]">MOBILE APP LOGIN</h3>
-                      <p className="text-sm text-[var(--microsoft-gray-700)] mt-2">
-                        Scan this QR code with the official Digital Identity mobile application
-                      </p>
-                    </div>
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="d365-card p-6">
+                <div className="p-3 bg-blue-50 rounded-lg w-fit mb-4">
+                  <Car className="w-6 h-6 text-blue-600" />
+                </div>
+                <h4 className="text-subtitle font-semibold text-d365-primary mb-2">Transport Services</h4>
+                <p className="text-body text-d365-secondary">
+                  Driver's License, Vehicle Registration &amp; Permits
+                </p>
+              </div>
+              
+              <div className="d365-card p-6">
+                <div className="p-3 bg-green-50 rounded-lg w-fit mb-4">
+                  <FileText className="w-6 h-6 text-green-600" />
+                </div>
+                <h4 className="text-subtitle font-semibold text-d365-primary mb-2">Civil Registry</h4>
+                <p className="text-body text-d365-secondary">
+                  Birth/Death Certificates &amp; Marriage Records
+                </p>
+              </div>
+              
+              <div className="d365-card p-6">
+                <div className="p-3 bg-purple-50 rounded-lg w-fit mb-4">
+                  <Building2 className="w-6 h-6 text-purple-600" />
+                </div>
+                <h4 className="text-subtitle font-semibold text-d365-primary mb-2">Business Services</h4>
+                <p className="text-body text-d365-secondary">
+                  Company Registration &amp; Trade Permits
+                </p>
+              </div>
+              
+              <div className="d365-card p-6">
+                <div className="p-3 bg-orange-50 rounded-lg w-fit mb-4">
+                  <BarChart3 className="w-6 h-6 text-orange-600" />
+                </div>
+                <h4 className="text-subtitle font-semibold text-d365-primary mb-2">Tax Services</h4>
+                <p className="text-body text-d365-secondary">
+                  Tax Filing, Compliance &amp; Refunds
+                </p>
+              </div>
+            </div>
 
-                  {/* QR Code Placeholder */}
-                  <div className="bg-white border-4 border-[var(--microsoft-blue)] rounded-lg p-8 mx-auto max-w-xs">
-                    <div className="w-48 h-48 bg-[var(--microsoft-gray-100)] rounded-lg flex items-center justify-center mx-auto border-2 border-dashed border-[var(--microsoft-gray-300)]">
-                      <div className="grid grid-cols-8 gap-1 w-32 h-32">
-                        {Array.from({ length: 64 }).map((_, i) => (
-                          <div
-                            key={i}
-                            className={`w-3 h-3 ${Math.random() > 0.5 ? 'bg-[var(--microsoft-blue)]' : 'bg-transparent'}`}
-                          />
-                        ))}
-                      </div>
+            <Alert className="border-blue-200 bg-blue-50">
+              <Shield className="h-5 w-5 text-blue-600" />
+              <AlertDescription className="text-blue-800">
+                <strong>Security Notice:</strong> Your data is protected with end-to-end encryption and follows international security standards (ISO 27001, SOC 2).
+              </AlertDescription>
+            </Alert>
+          </div>
+
+          {/* Login Panel */}
+          <div className="d365-card shadow-2xl">
+            <CardHeader className="text-center pb-6">
+              <CardTitle className="text-title1 font-semibold text-d365-primary">Sign In</CardTitle>
+              <CardDescription className="text-subtitle text-d365-secondary">
+                Access your government services account
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Tabs defaultValue="citizen" className="w-full">
+                <TabsList className="grid w-full grid-cols-3 mb-8">
+                  <TabsTrigger value="citizen" className="text-body">
+                    <Users className="h-4 w-4 mr-2" />
+                    Citizen
+                  </TabsTrigger>
+                  <TabsTrigger value="officer" className="text-body">
+                    <Shield className="h-4 w-4 mr-2" />
+                    Officer
+                  </TabsTrigger>
+                  <TabsTrigger value="admin" className="text-body">
+                    <Building2 className="h-4 w-4 mr-2" />
+                    Admin
+                  </TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="citizen" className="space-y-6 mt-8">
+                  <div className="space-y-3">
+                    <Label htmlFor="nationalId" className="text-body font-medium text-d365-primary">
+                      National ID Number
+                    </Label>
+                    <div className="d365-input-with-icon">
+                      <CreditCard className="input-icon w-5 h-5" />
+                      <input
+                        id="nationalId"
+                        type="text"
+                        placeholder="Enter your National ID number"
+                        value={formData.nationalId}
+                        onChange={(e) => handleInputChange('nationalId', e.target.value)}
+                      />
                     </div>
-                    <p className="text-xs text-[var(--microsoft-gray-500)] mt-2 text-center">
-                      Official Government QR Code
-                    </p>
                   </div>
 
                   <div className="space-y-3">
-                    <div className="bg-[var(--microsoft-gray-50)] border border-[var(--microsoft-gray-200)] rounded-md p-4">
-                      <p className="text-xs text-[var(--microsoft-gray-700)]">
-                        Don't have the official mobile app?
-                      </p>
-                      <Button variant="outline" size="sm" className="mt-2 w-full">
-                        DOWNLOAD OFFICIAL APP
-                      </Button>
+                    <Label htmlFor="phone" className="text-body font-medium text-d365-primary">
+                      Phone Number
+                    </Label>
+                    <div className="d365-input-with-icon">
+                      <Phone className="input-icon w-5 h-5" />
+                      <input
+                        id="phone"
+                        type="tel"
+                        placeholder="Enter your phone number"
+                        value={formData.phone}
+                        onChange={(e) => handleInputChange('phone', e.target.value)}
+                      />
                     </div>
                   </div>
 
                   <Button 
-                    onClick={handleQrLogin} 
-                    className="w-full bg-[var(--microsoft-blue-light)] text-[var(--microsoft-blue-dark)] hover:bg-[var(--microsoft-blue)] hover:text-white border border-[var(--microsoft-blue-light)]"
+                    className="d365-button d365-button-primary w-full h-12 text-subtitle font-medium"
+                    onClick={() => handleLogin('citizen')}
+                    disabled={isLoading}
                   >
-                    SIMULATE MOBILE APP LOGIN
+                    {isLoading ? 'Verifying Identity...' : 'Sign In as Citizen'}
                   </Button>
-                </div>
-              </Card>
-            </TabsContent>
-          </Tabs>
-        )}
+                  
+                  <p className="text-center text-body text-d365-secondary">
+                    Don't have an account? <button className="text-d365-primary hover:underline font-medium">Register here</button>
+                  </p>
+                </TabsContent>
 
-        <div className="mt-8 text-center">
-          <p className="text-sm text-[var(--microsoft-gray-700)]">
-            {isAdmin ? (
-              <>
-                Not an administrator?{' '}
-                <Button 
-                  variant="link" 
-                  onClick={onBack} 
-                  className="p-0 h-auto text-[var(--microsoft-blue)] font-semibold"
-                >
-                  CITIZEN LOGIN
-                </Button>
-              </>
-            ) : (
-              <>
-                New citizen registration required?{' '}
-                <Button 
-                  variant="link" 
-                  onClick={onBack} 
-                  className="p-0 h-auto text-[var(--microsoft-blue)] font-semibold"
-                >
-                  CREATE DIGITAL IDENTITY
-                </Button>
-              </>
-            )}
-          </p>
+                <TabsContent value="officer" className="space-y-6 mt-8">
+                  <div className="space-y-3">
+                    <Label htmlFor="officerEmail" className="text-body font-medium text-d365-primary">
+                      Official Email Address
+                    </Label>
+                    <div className="d365-input-with-icon">
+                      <Mail className="input-icon w-5 h-5" />
+                      <input
+                        id="officerEmail"
+                        type="email"
+                        placeholder="Enter your government email"
+                        value={formData.email}
+                        onChange={(e) => handleInputChange('email', e.target.value)}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <Label htmlFor="officerPassword" className="text-body font-medium text-d365-primary">
+                      Password
+                    </Label>
+                    <div className="d365-input-with-icon">
+                      <Lock className="input-icon w-5 h-5" />
+                      <input
+                        id="officerPassword"
+                        type="password"
+                        placeholder="Enter your secure password"
+                        value={formData.password}
+                        onChange={(e) => handleInputChange('password', e.target.value)}
+                      />
+                    </div>
+                  </div>
+
+                  <Button 
+                    className="d365-button d365-button-primary w-full h-12 text-subtitle font-medium"
+                    onClick={() => handleLogin('officer')}
+                    disabled={isLoading}
+                  >
+                    {isLoading ? 'Authenticating...' : 'Sign In as Officer'}
+                  </Button>
+                  
+                  <p className="text-center text-body text-d365-secondary">
+                    <button className="text-d365-primary hover:underline font-medium">Forgot your password?</button>
+                  </p>
+                </TabsContent>
+
+                <TabsContent value="admin" className="space-y-6 mt-8">
+                  <div className="space-y-3">
+                    <Label htmlFor="adminEmail" className="text-body font-medium text-d365-primary">
+                      Administrator Email
+                    </Label>
+                    <div className="d365-input-with-icon">
+                      <Mail className="input-icon w-5 h-5" />
+                      <input
+                        id="adminEmail"
+                        type="email"
+                        placeholder="Enter administrator email"
+                        value={formData.email}
+                        onChange={(e) => handleInputChange('email', e.target.value)}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <Label htmlFor="adminPassword" className="text-body font-medium text-d365-primary">
+                      Administrator Password
+                    </Label>
+                    <div className="d365-input-with-icon">
+                      <Lock className="input-icon w-5 h-5" />
+                      <input
+                        id="adminPassword"
+                        type="password"
+                        placeholder="Enter administrator password"
+                        value={formData.password}
+                        onChange={(e) => handleInputChange('password', e.target.value)}
+                      />
+                    </div>
+                  </div>
+
+                  <Button 
+                    className="d365-button d365-button-primary w-full h-12 text-subtitle font-medium"
+                    onClick={() => handleLogin('admin')}
+                    disabled={isLoading}
+                  >
+                    {isLoading ? 'Authenticating...' : 'Sign In as Administrator'}
+                  </Button>
+                  
+                  <p className="text-center text-body text-d365-secondary">
+                    <button className="text-d365-primary hover:underline font-medium">Need access? Contact IT Support</button>
+                  </p>
+                </TabsContent>
+              </Tabs>
+            </CardContent>
+          </div>
         </div>
 
-        {/* Security Footer */}
-        <div className="mt-8 formal-card p-4">
-          <div className="flex items-start space-x-2">
-            <AlertTriangle className="h-4 w-4 text-yellow-600 mt-0.5" />
-            <div>
-              <p className="text-xs text-[var(--microsoft-gray-700)]">
-                <strong>Security Notice:</strong> This portal uses government-grade encryption. 
-                Never share your login credentials. Report suspicious activity to the 
-                National Cybersecurity Authority.
-              </p>
-            </div>
+        {/* Footer */}
+        <div className="text-center mt-16 text-white/60">
+          <div className="flex items-center justify-center space-x-6 text-sm mb-4">
+            <span className="hover:text-white cursor-pointer">Privacy Policy</span>
+            <span className="hover:text-white cursor-pointer">Terms of Service</span>
+            <span className="hover:text-white cursor-pointer">Accessibility</span>
+            <span className="hover:text-white cursor-pointer">Contact Support</span>
+          </div>
+          <p className="text-sm mb-4">
+            © 2025 Government of the Republic of Utopia. All rights reserved.
+          </p>
+          <div className="flex items-center justify-center space-x-2 opacity-75">
+            <span className="text-xs">Powered by</span>
+            <img 
+              src={xpLogo} 
+              alt="Xnterprise" 
+              className="h-4 w-auto object-contain"
+            />
           </div>
         </div>
       </div>

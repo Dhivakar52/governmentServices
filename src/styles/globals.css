@@ -8,63 +8,86 @@
   --card-foreground: #323130;
   --popover: #ffffff;
   --popover-foreground: #323130;
-  --primary: #0078d4;
+  --primary: #003366;
   --primary-foreground: #ffffff;
   --secondary: #f3f2f1;
   --secondary-foreground: #323130;
-  --muted: #f3f2f1;
+  --muted: #edebe9;
   --muted-foreground: #605e5c;
-  --accent: #106ebe;
-  --accent-foreground: #ffffff;
+  --accent: #ffcb47;
+  --accent-foreground: #323130;
   --destructive: #d13438;
   --destructive-foreground: #ffffff;
   --border: #edebe9;
-  --input: #edebe9;
+  --input: #ffffff;
   --input-background: #ffffff;
-  --switch-background: #edebe9;
-  --font-weight-medium: 600;
-  --font-weight-normal: 400;
-  --ring: #0078d4;
-  --chart-1: #0078d4;
-  --chart-2: #106ebe;
-  --chart-3: #00bcf2;
-  --chart-4: #40e0d0;
-  --chart-5: #1ba1e2;
-  --radius: 0.25rem;
-  --sidebar: #ffffff;
-  --sidebar-foreground: #323130;
-  --sidebar-primary: #0078d4;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f3f2f1;
-  --sidebar-accent-foreground: #323130;
+  --ring: #003366;
+  
+  /* Dynamics 365 specific colors */
+  --d365-primary: #003366;
+  --d365-primary-light: #0078d4;
+  --d365-accent: #ffcb47;
+  --d365-background: #faf9f8;
+  --d365-surface: #ffffff;
+  --d365-surface-secondary: #f3f2f1;
+  --d365-text-primary: #323130;
+  --d365-text-secondary: #605e5c;
+  --d365-border: #edebe9;
+  --d365-hover: rgba(0, 51, 102, 0.08);
+  --d365-pressed: rgba(0, 51, 102, 0.12);
+  --d365-selected: rgba(0, 51, 102, 0.16);
+  
+  /* Sidebar */
+  --sidebar-width: 280px;
+  --sidebar-width-collapsed: 64px;
+  --sidebar-background: #ffffff;
   --sidebar-border: #edebe9;
-  --sidebar-ring: #0078d4;
+  --sidebar-item-hover: #f3f2f1;
+  --sidebar-item-active: #003366;
+  --sidebar-item-active-bg: rgba(0, 51, 102, 0.08);
   
-  /* Microsoft Dynamics 365 color palette - Updated for better visibility */
-  --microsoft-blue: #0078d4;
-  --microsoft-blue-dark: #106ebe;  /* Changed from #004578 to lighter blue */
-  --microsoft-blue-light: #deecf9;
-  --microsoft-blue-secondary: #005a9e;  /* Lighter than the old dark blue */
-  --microsoft-gray-900: #323130;
-  --microsoft-gray-700: #605e5c;
-  --microsoft-gray-500: #a19f9d;
-  --microsoft-gray-300: #c8c6c4;
-  --microsoft-gray-200: #edebe9;
-  --microsoft-gray-100: #f3f2f1;
-  --microsoft-gray-50: #faf9f8;
-  --microsoft-white: #ffffff;
-  --microsoft-red: #d13438;
-  --microsoft-green: #107c10;
-  --microsoft-orange: #ff8c00;
-  --microsoft-purple: #5c2d91;
+  /* Header */
+  --header-height: 56px;
+  --header-background: #ffffff;
+  --header-border: #edebe9;
   
-  /* Legacy variables for compatibility - Updated */
-  --government-green: #0078d4;
-  --government-gold: #f3f2f1;
-  --government-dark-gold: #106ebe;
-  --government-light-green: #00bcf2;
-  --official-red: #d13438;
-  --government-header: #106ebe;  /* Changed from #004578 to lighter blue */
+  /* Typography scale - Fluent UI */
+  --text-caption: 0.75rem;    /* 12px */
+  --text-body: 0.875rem;      /* 14px */
+  --text-subtitle: 1rem;      /* 16px */
+  --text-title3: 1.125rem;    /* 18px */
+  --text-title2: 1.25rem;     /* 20px */
+  --text-title1: 1.5rem;      /* 24px */
+  --text-large-title: 2rem;   /* 32px */
+  --text-display: 2.5rem;     /* 40px */
+  
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Spacing scale */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 0.75rem;   /* 12px */
+  --space-lg: 1rem;      /* 16px */
+  --space-xl: 1.5rem;    /* 24px */
+  --space-2xl: 2rem;     /* 32px */
+  --space-3xl: 3rem;     /* 48px */
+  
+  /* Border radius */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.1), 0 12px 12px rgba(0, 0, 0, 0.1);
 }
 
 .dark {
@@ -76,44 +99,26 @@
   --popover-foreground: #ffffff;
   --primary: #0078d4;
   --primary-foreground: #ffffff;
-  --secondary: #3e3e3e;
+  --secondary: #3a3a3a;
   --secondary-foreground: #ffffff;
-  --muted: #3e3e3e;
-  --muted-foreground: #a6a6a6;
-  --accent: #106ebe;
-  --accent-foreground: #ffffff;
-  --destructive: #d13438;
+  --muted: #484644;
+  --muted-foreground: #b3b0ad;
+  --accent: #ffcb47;
+  --accent-foreground: #1f1f1f;
+  --destructive: #ff6b6b;
   --destructive-foreground: #ffffff;
   --border: #484644;
-  --input: #484644;
-  --switch-background: #484644;
+  --input: #2d2d2d;
   --ring: #0078d4;
-  --sidebar: #2d2d2d;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #0078d4;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #3e3e3e;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #484644;
-  --sidebar-ring: #0078d4;
   
-  /* Microsoft Dynamics 365 dark theme colors */
-  --microsoft-blue: #0078d4;
-  --microsoft-blue-dark: #106ebe;
-  --microsoft-blue-light: #005a9e;
-  --microsoft-blue-secondary: #00bcf2;
-  --microsoft-gray-900: #ffffff;
-  --microsoft-gray-700: #d2d0ce;
-  --microsoft-gray-500: #a6a6a6;
-  --microsoft-gray-300: #605e5c;
-  --microsoft-gray-200: #484644;
-  --microsoft-gray-100: #3e3e3e;
-  --microsoft-gray-50: #2d2d2d;
-  --microsoft-white: #1f1f1f;
-  --microsoft-red: #ff5f5f;
-  --microsoft-green: #00cc6a;
-  --microsoft-orange: #ffaa44;
-  --microsoft-purple: #b4a7d6;
+  --d365-background: #1f1f1f;
+  --d365-surface: #2d2d2d;
+  --d365-surface-secondary: #3a3a3a;
+  --d365-text-primary: #ffffff;
+  --d365-text-secondary: #b3b0ad;
+  --d365-border: #484644;
+  --sidebar-background: #2d2d2d;
+  --header-background: #2d2d2d;
 }
 
 @theme inline {
@@ -135,521 +140,725 @@
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
-  --color-input-background: var(--input-background);
-  --color-switch-background: var(--switch-background);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 1px);
-  --radius-md: var(--radius);
-  --radius-lg: calc(var(--radius) + 2px);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-government-green: var(--government-green);
-  --color-government-gold: var(--government-gold);
-  --color-government-dark-gold: var(--government-dark-gold);
-  --color-government-light-green: var(--government-light-green);
-  --color-official-red: var(--official-red);
-  --color-government-header: var(--government-header);
-  --color-microsoft-blue: var(--microsoft-blue);
-  --color-microsoft-blue-dark: var(--microsoft-blue-dark);
-  --color-microsoft-blue-light: var(--microsoft-blue-light);
-  --color-microsoft-blue-secondary: var(--microsoft-blue-secondary);
-  --color-microsoft-gray-900: var(--microsoft-gray-900);
-  --color-microsoft-gray-700: var(--microsoft-gray-700);
-  --color-microsoft-gray-500: var(--microsoft-gray-500);
-  --color-microsoft-gray-300: var(--microsoft-gray-300);
-  --color-microsoft-gray-200: var(--microsoft-gray-200);
-  --color-microsoft-gray-100: var(--microsoft-gray-100);
-  --color-microsoft-gray-50: var(--microsoft-gray-50);
-  --color-microsoft-white: var(--microsoft-white);
-  --color-microsoft-red: var(--microsoft-red);
-  --color-microsoft-green: var(--microsoft-green);
-  --color-microsoft-orange: var(--microsoft-orange);
-  --color-microsoft-purple: var(--microsoft-purple);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground;
     font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    font-size: var(--font-size);
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-size: var(--text-body);
+    line-height: 1.4;
+  }
+  
+  .font-segoe {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   }
 }
 
-/**
- * Microsoft Dynamics 365 typography system
- */
+/* Microsoft Dynamics 365 Base Typography */
 @layer base {
-  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
-    h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      line-height: 1.2;
-      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      color: var(--microsoft-gray-900);
-      margin-bottom: 0.5rem;
-    }
-
-    h2 {
-      font-size: 1.75rem;
-      font-weight: 600;
-      line-height: 1.3;
-      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      color: var(--microsoft-gray-900);
-      margin-bottom: 0.375rem;
-    }
-
-    h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      line-height: 1.4;
-      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      color: var(--microsoft-gray-900);
-      margin-bottom: 0.25rem;
-    }
-
-    h4 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      line-height: 1.4;
-      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      color: var(--microsoft-gray-900);
-      margin-bottom: 0.25rem;
-    }
-
-    h5 {
-      font-size: 1.125rem;
-      font-weight: 600;
-      line-height: 1.4;
-      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      color: var(--microsoft-gray-900);
-      margin-bottom: 0.25rem;
-    }
-
-    h6 {
-      font-size: 1rem;
-      font-weight: 600;
-      line-height: 1.4;
-      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      color: var(--microsoft-gray-900);
-      margin-bottom: 0.25rem;
-    }
-
-    p {
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.5;
-      color: var(--microsoft-gray-700);
-      margin-bottom: 1rem;
-    }
-
-    label {
-      font-size: 0.875rem;
-      font-weight: 600;
-      line-height: 1.4;
-      color: var(--microsoft-gray-900);
-    }
-
-    button {
-      font-size: 0.875rem;
-      font-weight: 600;
-      line-height: 1.4;
-      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    }
-
-    input, textarea {
-      font-size: 0.875rem;
-      font-weight: 400;
-      line-height: 1.4;
-      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    }
-
-    small {
-      font-size: 0.75rem;
-      font-weight: 400;
-      color: var(--microsoft-gray-500);
-    }
+  .text-caption { 
+    font-size: var(--text-caption); 
+    line-height: 1.33;
   }
+  .text-body { 
+    font-size: var(--text-body); 
+    line-height: 1.43;
+  }
+  .text-subtitle { 
+    font-size: var(--text-subtitle); 
+    line-height: 1.5;
+  }
+  .text-title3 { 
+    font-size: var(--text-title3); 
+    line-height: 1.33;
+  }
+  .text-title2 { 
+    font-size: var(--text-title2); 
+    line-height: 1.3;
+  }
+  .text-title1 { 
+    font-size: var(--text-title1); 
+    line-height: 1.25;
+  }
+  .text-large-title { 
+    font-size: var(--text-large-title); 
+    line-height: 1.25;
+  }
+  .text-display { 
+    font-size: var(--text-display); 
+    line-height: 1.2;
+  }
+  
+  .font-regular { font-weight: var(--font-weight-regular); }
+  .font-medium { font-weight: var(--font-weight-medium); }
+  .font-semibold { font-weight: var(--font-weight-semibold); }
+  .font-bold { font-weight: var(--font-weight-bold); }
 }
 
-/* Microsoft Dynamics 365 specific styling */
-.government-header {
-  background: linear-gradient(135deg, var(--microsoft-blue-dark) 0%, var(--microsoft-blue) 100%);
-  border-bottom: 1px solid var(--microsoft-blue-light);
+/* Dynamics 365 Component Styles */
+.d365-card {
+  background: var(--d365-surface);
+  border: 1px solid var(--d365-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
 }
 
-.government-seal {
-  width: 48px;
-  height: 48px;
-  background: var(--microsoft-blue);
-  border-radius: 4px;
+.d365-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.d365-sidebar {
+  width: var(--sidebar-width);
+  background: var(--sidebar-background);
+  border-right: 1px solid var(--sidebar-border);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  transition: width 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.d365-sidebar.collapsed {
+  width: var(--sidebar-width-collapsed);
+}
+
+.d365-sidebar-item {
   display: flex;
   align-items: center;
-  justify-content: center;
-  border: none;
-  box-shadow: 0 2px 4px rgba(0, 120, 212, 0.2);
-}
-
-.official-banner {
-  background: var(--microsoft-blue);
-  color: var(--microsoft-white);
-  font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: 0.025em;
-}
-
-.formal-card {
-  border: 1px solid var(--microsoft-gray-200);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  background: var(--microsoft-white);
-}
-
-/* Enhanced Microsoft button styles */
-.microsoft-button-primary {
-  background: var(--microsoft-blue);
-  color: var(--microsoft-white);
-  border: 1px solid var(--microsoft-blue);
-  border-radius: 2px;
-  padding: 8px 16px;
-  font-weight: 600;
-  font-size: 0.875rem;
+  padding: var(--space-md);
+  color: var(--d365-text-primary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
   transition: all 0.2s ease;
-  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  cursor: pointer;
+  position: relative;
+  min-height: 44px; /* Ensure consistent height */
 }
 
-.microsoft-button-primary:hover {
-  background: var(--microsoft-blue-secondary);
-  border-color: var(--microsoft-blue-secondary);
+.d365-sidebar-item:hover {
+  background: var(--sidebar-item-hover);
 }
 
-.microsoft-button-secondary {
-  background: transparent;
-  color: var(--microsoft-blue);
-  border: 1px solid var(--microsoft-blue);
-  border-radius: 2px;
-  padding: 8px 16px;
-  font-weight: 600;
-  font-size: 0.875rem;
-  transition: all 0.2s ease;
-  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+.d365-sidebar-item.active {
+  background: var(--sidebar-item-active-bg);
+  color: var(--sidebar-item-active);
 }
 
-.microsoft-button-secondary:hover {
-  background: var(--microsoft-blue-light);
+.d365-sidebar-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 20px;
+  background: var(--d365-primary);
+  border-radius: 0 2px 2px 0;
 }
 
-/* Microsoft navigation styling */
-.microsoft-nav {
-  background: var(--microsoft-white);
-  border-bottom: 1px solid var(--microsoft-gray-200);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+.d365-header {
+  height: var(--header-height);
+  background: var(--header-background);
+  border-bottom: 1px solid var(--header-border);
+  position: fixed;
+  top: 0;
+  left: var(--sidebar-width);
+  right: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-xl);
+  transition: left 0.3s ease;
 }
 
-.microsoft-sidebar {
-  background: var(--microsoft-gray-50);
-  border-right: 1px solid var(--microsoft-gray-200);
+.d365-header.sidebar-collapsed {
+  left: var(--sidebar-width-collapsed);
 }
 
-/* Microsoft table styling */
-.microsoft-table {
-  border: 1px solid var(--microsoft-gray-200);
-  border-radius: 4px;
-  background: var(--microsoft-white);
+.d365-main-content {
+  margin-left: var(--sidebar-width);
+  margin-top: var(--header-height);
+  padding: var(--space-xl);
+  min-height: calc(100vh - var(--header-height));
+  transition: margin-left 0.3s ease;
 }
 
-.microsoft-table th {
-  background: var(--microsoft-gray-100);
-  color: var(--microsoft-gray-900);
-  font-weight: 600;
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--microsoft-gray-200);
+.d365-main-content.sidebar-collapsed {
+  margin-left: var(--sidebar-width-collapsed);
 }
 
-.microsoft-table td {
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--microsoft-gray-200);
-  color: var(--microsoft-gray-700);
-}
-
-/* Microsoft status indicators */
-.microsoft-status-success {
-  background: var(--microsoft-green);
-  color: var(--microsoft-white);
-}
-
-.microsoft-status-warning {
-  background: var(--microsoft-orange);
-  color: var(--microsoft-white);
-}
-
-.microsoft-status-error {
-  background: var(--microsoft-red);
-  color: var(--microsoft-white);
-}
-
-.microsoft-status-info {
-  background: var(--microsoft-blue);
-  color: var(--microsoft-white);
-}
-
-/* Microsoft card styling */
-.microsoft-card {
-  background: var(--microsoft-white);
-  border: 1px solid var(--microsoft-gray-200);
-  border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  padding: 16px;
-}
-
-.microsoft-card-header {
-  border-bottom: 1px solid var(--microsoft-gray-200);
-  padding-bottom: 12px;
-  margin-bottom: 16px;
-}
-
-/* Enhanced Microsoft form styling */
-.microsoft-form-group {
-  margin-bottom: 16px;
-}
-
-.microsoft-form-label {
-  display: block;
-  margin-bottom: 4px;
-  font-weight: 600;
-  color: var(--microsoft-gray-900);
-  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-}
-
-.microsoft-form-input {
-  width: 100%;
-  padding: 8px 12px;
-  border: 1px solid var(--microsoft-gray-300);
-  border-radius: 2px;
-  font-size: 0.875rem;
-  background: var(--microsoft-white);
-  transition: all 0.2s ease;
-  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  color: var(--microsoft-gray-900);
-}
-
-.microsoft-form-input:hover {
-  border-color: var(--microsoft-blue);
-}
-
-.microsoft-form-input:focus {
-  outline: none;
-  border-color: var(--microsoft-blue);
-  box-shadow: 0 0 0 1px var(--microsoft-blue);
-}
-
-/* Microsoft badge styling */
-.microsoft-badge {
+.d365-button {
   display: inline-flex;
   align-items: center;
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1.2;
-  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-}
-
-.microsoft-badge-primary {
-  background: var(--microsoft-blue-light);
-  color: var(--microsoft-blue-dark);
-}
-
-.microsoft-badge-success {
-  background: rgba(16, 124, 16, 0.1);
-  color: var(--microsoft-green);
-}
-
-.microsoft-badge-warning {
-  background: rgba(255, 140, 0, 0.1);
-  color: var(--microsoft-orange);
-}
-
-.microsoft-badge-error {
-  background: rgba(209, 52, 56, 0.1);
-  color: var(--microsoft-red);
-}
-
-/* Enhanced input styling with proper borders and hover states */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="tel"],
-input[type="date"],
-input[type="number"],
-textarea,
-select {
-  width: 100%;
-  padding: 8px 12px;
-  border: 1px solid var(--microsoft-gray-300) !important;
-  border-radius: 2px;
-  font-size: 0.875rem;
-  background: var(--microsoft-white);
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-medium);
   transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  min-height: 32px;
+}
+
+.d365-button-primary {
+  background: var(--d365-primary);
+  color: white;
+  padding: var(--space-sm) var(--space-lg);
+}
+
+.d365-button-primary:hover {
+  background: var(--d365-primary-light);
+}
+
+.d365-button-secondary {
+  background: var(--d365-surface-secondary);
+  color: var(--d365-text-primary);
+  border: 1px solid var(--d365-border);
+  padding: var(--space-sm) var(--space-lg);
+}
+
+.d365-button-secondary:hover {
+  background: var(--d365-hover);
+}
+
+.d365-input {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--d365-border);
+  border-radius: var(--radius-sm);
+  background: var(--d365-surface);
+  color: var(--d365-text-primary);
+  font-size: var(--text-body);
   font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  color: var(--microsoft-gray-900);
+  transition: all 0.2s ease;
+  min-height: 44px;
+  line-height: 1.43;
 }
 
-input[type="text"]:hover,
-input[type="email"]:hover,
-input[type="password"]:hover,
-input[type="tel"]:hover,
-input[type="date"]:hover,
-input[type="number"]:hover,
-textarea:hover,
-select:hover {
-  border-color: var(--microsoft-blue) !important;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="tel"]:focus,
-input[type="date"]:focus,
-input[type="number"]:focus,
-textarea:focus,
-select:focus {
+.d365-input:focus {
   outline: none;
-  border-color: var(--microsoft-blue) !important;
-  box-shadow: 0 0 0 1px var(--microsoft-blue);
+  border-color: var(--d365-primary);
+  box-shadow: 0 0 0 1px var(--d365-primary);
 }
 
-/* Force visible borders on form inputs */
-.microsoft-input,
-.form-input,
-input.border-gray-300,
-input.border-\[var\(--government-green\)\]\/30 {
-  border: 1px solid var(--microsoft-gray-300) !important;
+.d365-input::placeholder {
+  color: var(--d365-text-secondary);
+  font-size: var(--text-body);
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.43;
+  opacity: 0.7;
 }
 
-.microsoft-input:hover,
-.form-input:hover,
-input.border-gray-300:hover,
-input.border-\[var\(--government-green\)\]\/30:hover {
-  border-color: var(--microsoft-blue) !important;
+/* Input field with icon styling */
+.d365-input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-html {
-  font-size: var(--font-size);
+.d365-input-with-icon input {
+  width: 100%;
+  padding: var(--space-md) var(--space-md) var(--space-md) 48px;
+  border: 1px solid var(--d365-border);
+  border-radius: var(--radius-sm);
+  background: var(--d365-surface);
+  color: var(--d365-text-primary);
+  font-size: var(--text-body);
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  transition: all 0.2s ease;
+  min-height: 48px;
+  line-height: 1.43;
 }
 
-/* Scrollbar styling for Microsoft theme */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+.d365-input-with-icon input:focus {
+  outline: none;
+  border-color: var(--d365-primary);
+  box-shadow: 0 0 0 1px var(--d365-primary);
 }
 
-::-webkit-scrollbar-track {
-  background: var(--microsoft-gray-100);
+.d365-input-with-icon input::placeholder {
+  color: var(--d365-text-secondary);
+  font-size: var(--text-body);
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.43;
+  opacity: 0.7;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--microsoft-gray-300);
-  border-radius: 4px;
+.d365-input-with-icon .input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--d365-text-secondary);
+  z-index: 1;
+  pointer-events: none;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--microsoft-gray-500);
+.d365-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-xl);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  min-height: 20px;
 }
 
-/* Enhanced focus styles for accessibility */
-*:focus-visible {
-  outline: 2px solid var(--microsoft-blue);
-  outline-offset: 2px;
+.d365-badge-primary {
+  background: var(--d365-primary);
+  color: white;
 }
 
-/* Microsoft loading animation */
-@keyframes microsoft-spin {
+.d365-badge-secondary {
+  background: var(--d365-surface-secondary);
+  color: var(--d365-text-secondary);
+}
+
+.d365-badge-success {
+  background: #107c10;
+  color: white;
+}
+
+.d365-badge-warning {
+  background: #ff8c00;
+  color: white;
+}
+
+.d365-badge-error {
+  background: var(--destructive);
+  color: white;
+}
+
+.d365-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-2xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--d365-border);
+}
+
+.d365-page-title {
+  font-size: var(--text-title1);
+  font-weight: var(--font-weight-semibold);
+  color: var(--d365-text-primary);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.d365-page-subtitle {
+  font-size: var(--text-body);
+  color: var(--d365-text-secondary);
+  margin: var(--space-xs) 0 0 0;
+  line-height: 1.43;
+}
+
+/* Icon alignment utilities */
+.icon-text {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.icon-text-lg {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* Consistent button with icon styling */
+.btn-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* Content Transition Styles */
+.content-transition {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.content-transition.loading {
+  opacity: 0.3;
+  transform: translateY(10px);
+}
+
+.content-transition.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Loading Animations */
+@keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
-.microsoft-loading {
-  border: 2px solid var(--microsoft-gray-200);
-  border-top: 2px solid var(--microsoft-blue);
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes progressBar {
+  0% { width: 0%; }
+  30% { width: 30%; }
+  60% { width: 65%; }
+  100% { width: 100%; }
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+/* Page Loader Styles */
+.logo-loader {
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--d365-border);
+  border-top: 3px solid var(--d365-primary);
   border-radius: 50%;
-  animation: microsoft-spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+  position: relative;
 }
 
-/* Slide animations for government services */
-@keyframes slide-in-from-right {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(0); }
+.loading-spinner-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--d365-accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite reverse;
 }
 
-@keyframes slide-out-to-right {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(100%); }
+.progress-bar {
+  animation: progressBar 1.5s ease-in-out infinite;
 }
 
-.animate-in {
-  animation-duration: 300ms;
-  animation-fill-mode: both;
+/* Shimmer effect for loading placeholders */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--d365-surface-secondary) 0px,
+    rgba(255, 255, 255, 0.6) 40px,
+    var(--d365-surface-secondary) 80px
+  );
+  background-size: 200px;
+  animation: shimmer 1.5s ease-in-out infinite;
 }
 
-.slide-in-from-right {
-  animation-name: slide-in-from-right;
+/* Existing animations */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-.slide-out-to-right {
-  animation-name: slide-out-to-right;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Override any components that might be using dark blue backgrounds */
-.bg-\[var\(--government-header\)\],
-.bg-government-header {
-  background-color: var(--government-header) !important;
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-/* Ensure proper contrast for text on colored backgrounds */
-.text-white {
-  color: #ffffff !important;
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Fix button text color issues */
-button.text-white {
-  color: #ffffff !important;
+@keyframes slideDown {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-/* Enhanced card hover effects */
-.formal-card:hover,
-.microsoft-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transform: translateY(-1px);
+.slide-in-left {
+  animation: slideInFromLeft 0.3s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInFromRight 0.3s ease-out;
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.slide-down {
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .d365-sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .d365-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  
+  .d365-header {
+    left: 0;
+  }
+  
+  .d365-main-content {
+    margin-left: 0;
+  }
+  
+  .loading-spinner {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .loading-spinner-inner {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .d365-sidebar,
+  .d365-header,
+  .d365-main-content,
+  .d365-sidebar-item,
+  .d365-button,
+  .d365-input,
+  .slide-in-left,
+  .slide-in-right,
+  .fade-in,
+  .fade-in-up,
+  .slide-down,
+  .logo-loader,
+  .loading-spinner,
+  .loading-spinner-inner,
+  .progress-bar,
+  .content-transition {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* Focus indicators */
+.d365-sidebar-item:focus-visible,
+.d365-button:focus-visible,
+.d365-input:focus-visible,
+.d365-input-with-icon input:focus-visible {
+  outline: 2px solid var(--d365-primary);
+  outline-offset: 2px;
+}
+
+/* Utility classes */
+.text-d365-primary { color: var(--d365-primary); }
+.text-d365-secondary { color: var(--d365-text-secondary); }
+.bg-d365-surface { background: var(--d365-surface); }
+.bg-d365-background { background: var(--d365-background); }
+.border-d365 { border-color: var(--d365-border); }
+
+/* Central Admin Specific Styles */
+.admin-tree-node {
+  position: relative;
   transition: all 0.2s ease;
 }
 
-/* Improve select dropdown styling */
-select {
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%23605e5c' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
-  background-position: right 8px center;
-  background-repeat: no-repeat;
-  background-size: 16px;
-  padding-right: 32px;
+.admin-tree-node:before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--d365-border);
+  opacity: 0.5;
+}
+
+.admin-tree-node:last-child:before {
+  height: 50%;
+}
+
+.admin-tree-connector {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 12px;
+  height: 1px;
+  background: var(--d365-border);
+  opacity: 0.5;
+}
+
+/* Enhanced card hover effects for admin modules */
+.admin-module-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.admin-module-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Submenu navigation styles */
+.d365-sidebar-item.submenu {
+  padding-left: 48px;
+  font-size: var(--text-caption);
+  min-height: 36px;
+}
+
+.d365-sidebar-item.submenu:before {
+  content: '';
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  width: 8px;
+  height: 1px;
+  background: var(--d365-border);
+  opacity: 0.6;
+}
+
+/* Badge variants for admin status indicators */
+.admin-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+}
+
+.admin-status-active {
+  background: rgba(16, 124, 16, 0.1);
+  color: #107c10;
+  border: 1px solid rgba(16, 124, 16, 0.2);
+}
+
+.admin-status-inactive {
+  background: rgba(209, 52, 56, 0.1);
+  color: #d13438;
+  border: 1px solid rgba(209, 52, 56, 0.2);
+}
+
+.admin-status-pending {
+  background: rgba(255, 140, 0, 0.1);
+  color: #ff8c00;
+  border: 1px solid rgba(255, 140, 0, 0.2);
+}
+
+/* Admin layout specific responsive adjustments */
+@media (max-width: 1024px) {
+  .admin-tree-node {
+    padding-left: 0;
+  }
+  
+  .admin-tree-node:before,
+  .admin-tree-connector {
+    display: none;
+  }
+}
+
+/* Line clamp utility for admin cards */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Help modal specific styling */
+.help-modal-content {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.help-contact-grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.help-contact-card {
+  padding: var(--space-lg);
+  border: 1px solid var(--d365-border);
+  border-radius: var(--radius-lg);
+  transition: all 0.2s ease;
+}
+
+.help-contact-card:hover {
+  border-color: var(--d365-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.help-emergency-card {
+  background: linear-gradient(135deg, rgba(255, 82, 82, 0.05), rgba(255, 82, 82, 0.02));
+  border-color: rgba(255, 82, 82, 0.2);
+}
+
+.help-resource-link {
+  color: var(--d365-primary);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.help-resource-link:hover {
+  color: var(--d365-primary-light);
+  text-decoration: underline;
 }
 
 @layer components {
@@ -666,9 +875,4 @@ select {
   background-color: #DEEBFF !important;
   color: white !important;
 }
-}
-
-/* Ensure proper spacing and typography consistency */
-* {
-  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
