@@ -1,13 +1,10 @@
-import React from 'react';
+
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { 
-  BarChart3,
   Plus,
-  Download,
   Calendar,
-  Settings
 } from 'lucide-react';
 
 const mockReports = [

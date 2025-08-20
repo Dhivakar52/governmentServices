@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -8,7 +8,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from './ui/dialog';
 import { Switch } from './ui/switch';
 import { 
-  Edit,
   Plus,
   Settings,
   ArrowUp,
@@ -16,7 +15,7 @@ import {
   Play,
   FileText,
   CheckCircle,
-  XCircle,
+
   AlertTriangle,
   Bell,
   Square,
@@ -652,7 +651,7 @@ export function OfficerFormBuilder() {
                     </tr>
                   </thead>
                   <tbody>
-                    {mockFormFields.map((field, index) => (
+                    {mockFormFields.map((field) => (
                       <tr key={field.id} className="border-b border-d365-border hover:bg-d365-surface-secondary">
                         <td className="py-4 px-4 font-medium text-d365-text-primary">{field.name}</td>
                         <td className="py-4 px-4">{field.type}</td>

@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import  { useState} from 'react';
 import { Sidebar } from './components/Sidebar';
 import { Header } from './components/Header';
 import { LoginPage } from './components/LoginPage';
@@ -147,6 +147,59 @@ type ActiveView =
   | 'officer-form-builder'
   | 'officer-data-export';
 
+
+  export type AdminUser = {
+  id: string;
+  name: string;
+  role: string;
+  adminId: number;
+  fullName: string;
+
+};
+export interface UserDocument {
+  id: string;
+  type: string;
+  dateIssued: string;
+  status: string;
+}
+export type User = {
+  id: string;
+  name: string;
+  email: string;
+  role: "admin" | "user";
+  fullName: string;
+  civId: string;
+  mobile: string;
+  address: {
+    line1: string;
+    city: string;
+    state: string;
+  };
+  documents: UserDocument[];
+  dateOfBirth: number;
+  gender: string;
+};
+export interface RegistrationData {
+  personalInfo: {
+    name: string;
+    age: number;
+    email: string;
+  };
+  identityProof: {
+    type: string;
+    number: string;
+  };
+  address: {
+    street: string;
+    city: string;
+    state: string;
+    zip: string;
+  };
+  biometric: {
+    fingerprint: string;
+    photo: string;
+  };
+}
 export default function App() {
   const [currentUser, setCurrentUser] = useState<UserRole>(null);
   const [activeView, setActiveView] = useState<ActiveView>('login');
@@ -186,7 +239,7 @@ export default function App() {
     setIsLoading(false);
   };
 
-  const handleNavigate = async (view: ActiveView) => {
+  const handleNavigate = async (view: ActiveView): Promise<void> => {
     if (view === activeView) return;
     
     setIsNavigating(true);

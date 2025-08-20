@@ -6,9 +6,9 @@ import {
   Mail, 
   QrCode,
   Shield,
-  Calendar,
+
   Search,
-  Filter,
+
   Printer
 } from 'lucide-react';
 

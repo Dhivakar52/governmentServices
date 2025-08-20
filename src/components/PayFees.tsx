@@ -8,7 +8,6 @@ import {
   Download,
   RefreshCw,
   Smartphone,
-  Banknote,
   Building2
 } from 'lucide-react';
 

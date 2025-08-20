@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+// import  { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
-import { Progress } from './ui/progress';
+// import { Progress } from './ui/progress';
 import { 
   BarChart3, 
   Download, 
@@ -14,7 +14,7 @@ import {
   Clock,
   CheckCircle,
   Filter,
-  Printer
+
 } from 'lucide-react';
 
 interface ReportsAnalyticsProps {
@@ -49,7 +49,7 @@ const reportTemplates = [
 ];
 
 export function ReportsAnalytics({ userRole }: ReportsAnalyticsProps) {
-  const [selectedPeriod, setSelectedPeriod] = useState('month');
+  // const [selectedPeriod, setSelectedPeriod] = useState('month');
 
   const isAdmin = userRole === 'admin';
 

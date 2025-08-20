@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '../ui/dialog';
 import { Label } from '../ui/label';
 import { Textarea } from '../ui/textarea';
+import type { UserDocument } from '../../App';
 import { 
   FileText, 
   Download, 
@@ -31,7 +32,7 @@ interface Document {
 }
 
 interface DocumentsPageProps {
-  documents: Document[];
+  documents: UserDocument[];
 }
 
 interface DocumentDetails {
@@ -54,7 +55,7 @@ export function DocumentsPage({ documents }: DocumentsPageProps) {
   const [showRequestModal, setShowRequestModal] = useState(false);
   const [showVerifyModal, setShowVerifyModal] = useState(false);
   const [showViewModal, setShowViewModal] = useState(false);
-  const [selectedDocument, setSelectedDocument] = useState<DocumentDetails | null>(null);
+  const [selectedDocument,_setSelectedDocument] = useState<DocumentDetails | null>(null);
   const [requestForm, setRequestForm] = useState({
     documentType: '',
     reason: '',
@@ -112,22 +113,22 @@ export function DocumentsPage({ documents }: DocumentsPageProps) {
     link.click();
   };
 
-  const viewDocument = (doc: Document) => {
-    // Simulate detailed document information
-    const details: DocumentDetails = {
-      ...doc,
-      issuingAuthority: 'Ministry of Digital Services',
-      documentNumber: `DOC-${doc.id}-${Math.random().toString(36).substring(7).toUpperCase()}`,
-      validUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000 * 5).toLocaleDateString(),
-      securityLevel: 'Government Classified',
-      digitalSignature: `SHA256:${Math.random().toString(36).substring(7).toUpperCase()}`,
-      fileSize: `${Math.floor(Math.random() * 500 + 100)} KB`,
-      downloadCount: Math.floor(Math.random() * 10)
-    };
+  // const viewDocument = (doc: Document) => {
+  //   // Simulate detailed document information
+  //   const details: DocumentDetails = {
+  //     ...doc,
+  //     issuingAuthority: 'Ministry of Digital Services',
+  //     documentNumber: `DOC-${doc.id}-${Math.random().toString(36).substring(7).toUpperCase()}`,
+  //     validUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000 * 5).toLocaleDateString(),
+  //     securityLevel: 'Government Classified',
+  //     digitalSignature: `SHA256:${Math.random().toString(36).substring(7).toUpperCase()}`,
+  //     fileSize: `${Math.floor(Math.random() * 500 + 100)} KB`,
+  //     downloadCount: Math.floor(Math.random() * 10)
+  //   };
     
-    setSelectedDocument(details);
-    setShowViewModal(true);
-  };
+  //   setSelectedDocument(details);
+  //   setShowViewModal(true);
+  // };
 
   const handleRequestSubmit = () => {
     // Simulate certificate request
@@ -283,7 +284,7 @@ export function DocumentsPage({ documents }: DocumentsPageProps) {
                     <Button 
                       variant="outline" 
                       size="sm"
-                      onClick={() => viewDocument(doc)}
+                      // onClick={() => viewDocument(doc)}
                     >
                       <Eye className="h-4 w-4 mr-1" />
                       VIEW
@@ -291,7 +292,7 @@ export function DocumentsPage({ documents }: DocumentsPageProps) {
                     <Button 
                       variant="outline" 
                       size="sm"
-                      onClick={() => downloadDocument(doc)}
+                      // onClick={() => downloadDocument(doc)}
                     >
                       <Download className="h-4 w-4 mr-1" />
                       DOWNLOAD

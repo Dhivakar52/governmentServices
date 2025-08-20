@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { AdminPageLayout } from './AdminPageLayout';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
@@ -39,7 +39,7 @@ interface HierarchyNode {
 
 export function OrganizationHierarchy({ onBack }: OrganizationHierarchyProps) {
   const [selectedNode, setSelectedNode] = useState<HierarchyNode | null>(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [_searchQuery, setSearchQuery] = useState('');
   const [expandedNodes, setExpandedNodes] = useState<Set<string>>(new Set(['1']));
 
   // Mock hierarchy data

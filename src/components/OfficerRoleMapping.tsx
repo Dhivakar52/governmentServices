@@ -26,7 +26,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger 
 } from './ui/dialog';
 import { Checkbox } from './ui/checkbox';
 import { Badge } from './ui/badge';
