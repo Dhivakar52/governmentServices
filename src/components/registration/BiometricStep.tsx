@@ -5,10 +5,13 @@ import { Fingerprint, ScanFace, CheckCircle, AlertCircle } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { Label } from '../ui/label';
 
-interface Biometric {
+export interface Biometric {
   completed: boolean;
   scanType: 'fingerprint' | 'face';
+  fingerprint?: string;
+  photo?: string;
 }
+
 
 interface BiometricStepProps {
   data: Biometric;

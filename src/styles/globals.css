@@ -861,9 +861,19 @@
   text-decoration: underline;
 }
 
+
 @layer components {
   [role="dialog"] {
     background-color: white !important;
+
+  }
+[role="tablist"] {
+    background-color: #ddd !important;
+
+  }
+   [role="tablist"] > [data-state="active"] {
+    background-color: white !important;
+    margin:0px 30px !important;
 
   }
   [role="listbox"],[role="menuitem"]{
@@ -874,5 +884,8 @@
   [data-slot="select-content"] [data-highlighted] {
   background-color: #DEEBFF !important;
   color: white !important;
+}
+.bg-card{
+    background-color: white !important;
 }
 }

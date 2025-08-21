@@ -180,10 +180,16 @@ export type User = {
   gender: string;
 };
 export interface RegistrationData {
+
   personalInfo: {
     name: string;
     age: number;
     email: string;
+    fullName: string;
+  dateOfBirth: string;
+  gender: string;
+  mobile : string;
+  
   };
   identityProof: {
     type: string;
@@ -194,6 +200,7 @@ export interface RegistrationData {
     city: string;
     state: string;
     zip: string;
+    line1: string;
   };
   biometric: {
     fingerprint: string;
@@ -979,7 +986,7 @@ export default function App() {
       <Sidebar
         currentUser={currentUser}
         activeView={activeView}
-        onNavigate={handleNavigate}
+       onNavigate={(view) => handleNavigate(view as ActiveView)}
         collapsed={sidebarCollapsed}
         onToggleCollapse={toggleSidebar}
       />

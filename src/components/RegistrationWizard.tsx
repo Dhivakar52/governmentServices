@@ -9,6 +9,20 @@ import { AddressInfoStep } from './registration/AddressInfoStep';
 import { BiometricStep } from './registration/BiometricStep';
 import { ConfirmationStep } from './registration/ConfirmationStep';
 import type { RegistrationData } from '../App';
+import type { Address } from './registration/AddressInfoStep';
+import type { Biometric } from './registration/BiometricStep';
+
+
+
+export interface PersonalInfo {
+  fullName: string;
+  dateOfBirth: string;
+  gender: string;
+  email: string;
+  mobile: string;
+
+}
+
 
 interface RegistrationWizardProps {
   data: RegistrationData;
@@ -101,8 +115,10 @@ export function RegistrationWizard({ data, onDataChange, onComplete, onBack }: R
       case 1:
         return (
           <PersonalInfoStep
-            data={data.personalInfo}
-            onChange={handlePersonalInfoChange}
+            data={data.personalInfo as PersonalInfo}
+  onChange={(info) =>
+    handlePersonalInfoChange(info as RegistrationData["personalInfo"])
+  }
             onValidation={handlePersonalInfoValidation}
           />
         );
@@ -116,17 +132,17 @@ export function RegistrationWizard({ data, onDataChange, onComplete, onBack }: R
         );
       case 3:
         return (
-          <AddressInfoStep
-            data={data.address}
-            onChange={handleAddressChange}
-            onValidation={handleAddressValidation}
-          />
+         <AddressInfoStep
+  data={data.address as Address}
+  onChange={handleAddressChange as (data: Address) => void}
+  onValidation={handleAddressValidation}
+/>
         );
       case 4:
         return (
           <BiometricStep
-            data={data.biometric}
-            onChange={handleBiometricChange}
+            data={data.biometric as Biometric}
+            onChange={handleBiometricChange as (data: Biometric) => void}
             onValidation={handleBiometricValidation}
           />
         );

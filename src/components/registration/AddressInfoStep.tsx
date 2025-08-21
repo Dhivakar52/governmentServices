@@ -3,14 +3,17 @@ import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 
-interface Address {
+export interface Address {
   line1: string;
   city: string;
-  district: string;
-  postalCode: string;
-  country: string;
   state: string;
+  district?: string;
+  postalCode?: string;
+  country?: string;
+  street?: string;
+  zip?: string;
 }
+
 
 interface AddressInfoStepProps {
   data: Address;

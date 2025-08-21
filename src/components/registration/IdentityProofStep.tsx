@@ -5,9 +5,12 @@ import { Label } from '../ui/label';
 import { Upload, Camera, CheckCircle, AlertCircle, FileText } from 'lucide-react';
 
 interface IdentityProof {
-  governmentId: File | null;
-  selfie: File | null;
-  matchSuccess: boolean;
+  governmentId ?: File | null;
+  selfie ?: File | null;
+  matchSuccess ?: boolean;
+  type: string;
+  number: string;
+
 }
 
 interface IdentityProofStepProps {

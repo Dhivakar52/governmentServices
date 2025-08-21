@@ -260,12 +260,12 @@ export const RegionSpecificRules: React.FC<RegionSpecificRulesProps> = ({ onBack
     <AdminPageLayout 
       title="Region-Specific Rules" 
       onBack={onBack}
-      action={
-        <Button onClick={handleAddRule} className="d365-button-primary btn-with-icon">
-          <Plus className="w-4 h-4" />
-          Add Region Rule
-        </Button>
-      }
+    
+       actionButton={{
+    label: "Save",
+    onClick: handleAddRule,
+    icon: <Plus />
+  }}
     >
       <div className="space-y-6">
         {/* Summary Cards */}

@@ -3,17 +3,18 @@ import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 
-interface PersonalInfo {
+export interface PersonalInfo {
   fullName: string;
   dateOfBirth: string;
   gender: string;
   email: string;
   mobile: string;
+
 }
 
-interface PersonalInfoStepProps {
+export interface PersonalInfoStepProps {
   data: PersonalInfo;
-  onChange: (data: PersonalInfo) => void;
+  onChange:   (data: PersonalInfo) => void;
   onValidation: (isValid: boolean) => void;
 }
 

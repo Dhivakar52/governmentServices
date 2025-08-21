@@ -22,7 +22,6 @@ import {
   MapPin,
   DollarSign,
   Settings,
-  Globe
 } from 'lucide-react';
 
 interface PaymentGatewaySetupProps {
@@ -52,18 +51,18 @@ interface PaymentGateway {
   successRate: number;
 }
 
-interface RegionalOverride {
-  region: string;
-  currency: string;
-  limits: {
-    min: number;
-    max: number;
-  };
-  fees: {
-    percentage: number;
-    fixed: number;
-  };
-}
+// interface RegionalOverride {
+//   region: string;
+//   currency: string;
+//   limits: {
+//     min: number;
+//     max: number;
+//   };
+//   fees: {
+//     percentage: number;
+//     fixed: number;
+//   };
+// }
 
 export function PaymentGatewaySetup({ onBack }: PaymentGatewaySetupProps) {
   const [searchQuery, setSearchQuery] = useState('');

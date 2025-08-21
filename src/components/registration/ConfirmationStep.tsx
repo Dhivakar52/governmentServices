@@ -9,6 +9,22 @@ interface ConfirmationStepProps {
   data: RegistrationData;
   onComplete: (civId: string) => void;
 }
+// interface PersonalInfo {
+//   fullName: string;
+//   dateOfBirth: string;
+//   gender: string;
+// }
+
+// interface UserData {
+//   civId: string;
+//   personalInfo: PersonalInfo;
+//   address: {
+//     line1: string;
+//     city: string;
+//     state: string;
+//   };
+// }
+
 
 export function ConfirmationStep({ data, onComplete }: ConfirmationStepProps) {
   const [civId] = useState(() => `CIV-${new Date().getFullYear()}-${String(Math.floor(Math.random() * 999999)).padStart(6, '0')}`);
