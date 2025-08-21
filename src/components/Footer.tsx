@@ -1,5 +1,5 @@
 
-import xpLogo from '../assets/dummy_logo.jpg';
+import xpLogo from '../assets/footer_logo.png';
 
 interface FooterProps {
   variant?: 'default' | 'minimal';
